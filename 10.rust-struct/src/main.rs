@@ -1,6 +1,5 @@
 // 结构体的定义和实例化
 fn main() {
-    println!("Hello, world!");
     // 结构体的实例化
     let user1 = User {
         active: true,
@@ -25,10 +24,6 @@ fn main() {
     println!("username:{}, email:{}", user2.username, user2.email);
     // 下面的输出会报错，因为 user1中的 String 的所有权已经移交到 User2中，虽然User2只重新赋值了 username
     // println!("username:{}", user1.username);
-
-    test_struct_tuple();
-    test_unit_like_struct();
-    
 }
 
 // 结构体定义
@@ -68,22 +63,5 @@ fn copy_user(user: User, username: String) -> User {
     }
 }
 
-// 通过定义元组的形式也可以创建结构体，但是这种结构体没有字段名，只有具体的字段类型。
-struct Rgb(i8, i8, i8);
-struct Point(i32, i32, i32);
-
-fn test_struct_tuple() {
-    let rgb = Rgb(10, 10, 10);
-    let mut point = Point(20, 20, 20);
-    point.1 = 30;
-    println!("rgb:{},point:{}", rgb.0, point.1);
-}
-
-
-// 类单元结构体，一个没有任何字段的结构体、
-struct UnitLikeStructs;
-fn test_unit_like_struct(){
-    let a = UnitLikeStructs;
-}
 
 // 利用结构体编写一个计算长方形面积的程序

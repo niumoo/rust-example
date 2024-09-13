@@ -1,3 +1,6 @@
+pub mod main2;
+pub mod slice_array;
+
 fn main() {
     let s = String::from("hello world");
     let word = first_word(&s);

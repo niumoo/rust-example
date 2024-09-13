@@ -1,5 +1,4 @@
 fn main() {
-    println!("Hello, world!");
     let mut re = Rectangle {
         width: 12,
         height: 22,
@@ -38,8 +37,9 @@ impl Rectangle {
     }
 }
 
-/**所有在 impl 块中定义的函数被称为 关联函数（associated functions），因为它们与 impl 后面命名的类型相关。我们可以定义不以 self 为第一参数的关联函数（因此不是方法），因为它们并不作用于一个结构体的实例。我们已经使用了一个这样的函数：在 String 类型上定义的 String::from 函数。
- * 
+/**所有在 impl 块中定义的函数被称为 关联函数（associated functions），
+ * 因为它们与 impl 后面命名的类型相关。
+ *
  */
 impl Rectangle {
     // 传入另一个参数
@@ -47,7 +47,14 @@ impl Rectangle {
         self.width > other.width && self.height > other.height
     }
 
-    // 没有self 参数的关联函数
+    /**
+     * 我们可以定义不以 self 为第一参数的关联函数（因此不是方法），
+     * 因为它们并不作用于一个结构体的实例。我们已经使用了一个这样的函数：
+     * 在 String 类型上定义的 String::from 函数。
+     * 
+     * 没有self 参数的关联函数
+     * 关键字 Self 在函数的返回类型中代指在 impl 关键字后出现的类型，在这里是 Rectangle
+     */
     fn square(size: u32) -> Self {
         Self {
             width: size,

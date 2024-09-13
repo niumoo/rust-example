@@ -1,3 +1,31 @@
+use std::net::Ipv4Addr;
+
+#[derive(Debug)]
+enum IpAddrKind {
+    V4,
+    V6,
+}
+#[derive(Debug)]
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
+}
+
+// 定义枚举类型时可以直接定义附加的数据体结构，这样通过一个枚举就可以包含类型和具体的值
+#[derive(Debug)]
+enum IpAddr2 {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+// 枚举类型也可以有方法
+impl IpAddr2 {
+    fn print(&self){
+        print!("hello emun");
+    }
+}
+
+
 fn main() {
     let four = IpAddrKind::V4;
     let six = IpAddrKind::V6;
@@ -23,32 +51,13 @@ fn main() {
     dbg!(&six);
     six.print();
     test_option();
+
+    // 官方定义的 IP V4 类
+    let ipv4 = Ipv4Addr::new(111, 111, 111, 111);
+    print!("{}",ipv4)
+
+
     
-}
-
-#[derive(Debug)]
-enum IpAddrKind {
-    V4,
-    V6,
-}
-#[derive(Debug)]
-struct IpAddr {
-    kind: IpAddrKind,
-    address: String,
-}
-
-// 定义枚举类型时可以直接定义附加的数据体结构，这样通过一个枚举就可以包含类型和具体的值
-#[derive(Debug)]
-enum IpAddr2 {
-    V4(u8, u8, u8, u8),
-    V6(String),
-}
-
-// 枚举类型也可以有方法
-impl IpAddr2 {
-    fn print(&self){
-        print!("hello emun");
-    }
 }
 
 
